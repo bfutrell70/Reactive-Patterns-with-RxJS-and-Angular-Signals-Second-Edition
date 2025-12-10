@@ -60,3 +60,27 @@ With the following software and hardware list you can run all code files present
 
 ## Other books by the author
 * [Reactive Patterns with RxJS for Angular](https://www.packtpub.com/product/reactive-patterns-with-rxjs-for-angular/9781801811514)
+
+## Errata
+* Page 92: Under the heading _Exploring the reactive pattern for the autosave feature_, in the second paragraph, ``this.http.post<Recipe>(`${BASE_PATH}/recipes`, formValue`` should be  ``this.http.post<Recipe>(`${BASE_PATH}/recipes`, formValue)``. The closing bracket "`)`" is missing at the end.
+* Page 103: In the last sentence at the end of the page, "`concatMap`" should be "`switchMap`". Thus, the sentence becomes "`switchMap` will issue a GET request for every unique user’s
+input and ensure only the latest search results are displayed, canceling previous requests."
+* Page 128: Under the heading _Modifying a writable Signal_, the first sentence mentions "the `creation` function". It should be "the `signal` function".
+* Page 135: In the second sentence of the first paragraph, "`BehaviourSubject`" should be "`BehaviorSubject`". 
+* Page 141: Under the heading _Sharing data using Signals_, the first code block snippet should be considered with the following format:
+  ```js
+  export class SharedDataService {
+    private selectedRecipeSubject = new BehaviorSubject<Recipe>({});
+    selectedRecipeAction$ = this.selectedRecipeSubject.asObservable();
+    updateSelectedRecipe(recipe:Recipe) {
+      this.selectedRecipeSubject.next(recipe);
+    }
+  }
+  ```
+* Page 145: In the third point of the list, "`AddressLine1`" should be "`addressLine1`".
+* Page 145: In the third line of the last code snippet, `< app-shipping [label]="addressAsSignalProperty()">` should be `< app-shipping [addressLine1]="addressAsSignalProperty()">`.
+* Page 153: There's a typo in the third paragraph. "ubscriber" should be "subscriber".
+* Page 158: Under the heading _replaySubject_, "`replaySubject` is a subject variant, similar to `plainSubject`" should be "`ReplaySubject` is a subject variant, similar to `Subject`".
+* Page 161: In the second paragraph, `PlainSubject` should be `Subject`.
+* Page 170: In the sentence "This is a known RXJS pattern for executing a treatment every _x_ seconds.", "RXJS" should be "RxJS".
+* Page 208: The repository link should be: https://github.com/PacktPublishing/Reactive-Patterns-with-RxJS-and-Angular-Signals-Second-Edition/tree/main/Chap13. While the current link is different, clicking on it will lead to the correct page.
