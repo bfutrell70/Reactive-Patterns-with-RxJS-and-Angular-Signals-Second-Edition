@@ -6,10 +6,29 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { RecipesService } from './core/services/recipes.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './core/header/header.component';
-@NgModule({ declarations: [
-        AppComponent
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        HeaderComponent], providers: [RecipesService, provideHttpClient(withInterceptorsFromDi())] })
+
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura'
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HeaderComponent],
+  providers: [
+    RecipesService,
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Aura
+      }
+    })
+  ]
+})
 export class AppModule { }
